@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.17)  19 MAR 2026 02:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.17)  19 MAR 2026 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -326,8 +326,13 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box64
 \enit@count@id=\count322
 \enitdp@description=\count323
+) (C:\Users\anony\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks31
+\verbatim@line=\toks32
+\verbatim@in@stream=\read3
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 20.
+Package hyperref Info: Option `colorlinks' set `true' on input line 21.
  (C:\Users\anony\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count324
@@ -337,24 +342,24 @@ Package babel Info: 'brazil' activates 'portuges' shorthands.
 )
 \openout1 = `doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -397,12 +402,12 @@ LaTeX Font Info:    ... okay on input line 48.
 \scratchbox=\box65
 \nofMPsegments=\count326
 \nofMParguments=\count327
-\everyMPshowfont=\toks31
+\everyMPshowfont=\toks33
 \MPscratchCnt=\count328
 \MPscratchDim=\dimen191
 \MPnumerator=\count329
 \makeMPintoPDFobject=\count330
-\everyMPtoPDFconversion=\toks32
+\everyMPtoPDFconversion=\toks34
 ) (C:\Users\anony\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -415,7 +420,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\anony\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 48.
+Package hyperref Info: Link coloring ON on input line 49.
  (doc.out) (doc.out)
 \@outlinefile=\write3
 \openout3 = `doc.out'.
@@ -424,58 +429,88 @@ Package hyperref Info: Link coloring ON on input line 48.
 
 {C:/Users/anony/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 130.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 131.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 143.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 144.
  [3] [4] [5] [6]
-Overfull \hbox (46.67506pt too wide) in paragraph at lines 278--279
+Overfull \hbox (46.67506pt too wide) in paragraph at lines 279--280
 []\T1/cmr/m/n/12 agenda uma nova atu-a-li-za-ção após 500 mi-lis-se-gun-dos com \T1/cmtt/m/n/12 root.after(500, self.update)\T1/cmr/m/n/12 . 
  []
 
-[7] [8]
-<fig1.png, id=265, 478.78876pt x 638.385pt>
+[7]
+<fig1.png, id=266, 478.78876pt x 638.385pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
 Package pdftex.def Info: fig1.png  used on input line 329.
 (pdftex.def)             Requested size: 409.71692pt x 546.2924pt.
- [9]
-<fig2.png, id=271, 226.59656pt x 102.3825pt>
+ [8]
+<fig2.png, id=283, 226.59656pt x 102.3825pt>
 File: fig2.png Graphic file (type png)
 <use fig2.png>
 Package pdftex.def Info: fig2.png  used on input line 335.
 (pdftex.def)             Requested size: 409.71692pt x 185.12257pt.
- [10 <./fig1.png>]
-<fig3.png, id=278, 388.45125pt x 39.14626pt>
+ [9 <./fig1.png>]
+<fig3.png, id=290, 388.45125pt x 39.14626pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
 Package pdftex.def Info: fig3.png  used on input line 341.
 (pdftex.def)             Requested size: 409.71692pt x 41.29053pt.
- [11 <./fig2.png> <./fig3.png>]
-<fig4.png, id=287, 714.9912pt x 352.1958pt>
+ [10 <./fig2.png> <./fig3.png>]
+<fig4.png, id=299, 714.9912pt x 352.1958pt>
 File: fig4.png Graphic file (type png)
 <use fig4.png>
 Package pdftex.def Info: fig4.png  used on input line 383.
 (pdftex.def)             Requested size: 455.24411pt x 224.24911pt.
- [12 <./fig4.png>] [13] [14] (doc.aux)
+ [11 <./fig4.png>] [12] [13]
+File: "pizzaria.py"  (verbatim)
+ [14
+
+] [15]
+Overfull \hbox (38.1354pt too wide) in paragraph at lines 440--440
+[]    \T1/cmtt/m/n/10 entregadores_threads = [Entregador(name=f"Entregador-{i+1}") for i in range(entregadores)][] 
+ []
+
+[16]
+File: "interface.py"  (verbatim)
+ [17]
+File: "main.py"  (verbatim)
+
+Overfull \hbox (43.38412pt too wide) in paragraph at lines 452--452
+[]    \T1/cmtt/m/n/10 sim_thread = threading.Thread(target=iniciar_simulacao, args=(chefs, entregadores, pizzas))[] 
+ []
+
+[18]
+File: "graph.py"  (verbatim)
+
+Overfull \hbox (1.39438pt too wide) in paragraph at lines 458--458
+[]                \T1/cmtt/m/n/10 f"TOTAL_PIZZAS={TOTAL_PIZZAS} precisa ser divisivel por {chefs} chefs."[] 
+ []
+
+[19]
+Overfull \hbox (11.89182pt too wide) in paragraph at lines 458--458
+[]        \T1/cmtt/m/n/10 print(f"{label} | total de threads: {total_threads} | tempo: {tempo_total:.2f}s")[] 
+ []
+
+[20] [21] (doc.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `doc.out' has not changed.
-(rerunfilecheck)             Checksum: 56D4AA3EEB68C14C30F8B3159687E1E0;6994.
+(rerunfilecheck)             Checksum: C53350FC21D81BDEB9943E1DEDB720F8;7290.
  ) 
 Here is how much of TeX's memory you used:
- 11854 strings out of 467871
- 185958 string characters out of 5418376
- 623955 words of memory out of 5000000
- 40466 multiletter control sequences out of 15000+600000
- 639636 words of font info for 68 fonts, out of 8000000 for 9000
+ 11933 strings out of 467871
+ 187317 string characters out of 5418376
+ 628670 words of memory out of 5000000
+ 40525 multiletter control sequences out of 15000+600000
+ 640712 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,691b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1440.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on doc.pdf (14 pages, 346930 bytes).
+ 75i,8n,79p,691b,702s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1440.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\anony\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/anony/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on doc.pdf (21 pages, 384797 bytes).
 PDF statistics:
- 741 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
- 349 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 873 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

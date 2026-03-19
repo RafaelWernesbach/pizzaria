@@ -84,7 +84,7 @@ class Chef(threading.Thread):
 
                 if eh_primo(ingrediente):
                     pizza = ingrediente
-                    print(f"Chef {self.name} faz uma pizza sendo o numero {pizza}")
+                    print(f"{self.name} faz uma pizza sendo o numero {pizza}")
                     pizzas_feitas += 1
                 else:
                     pizza = None

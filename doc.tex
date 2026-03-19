@@ -12,6 +12,7 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{verbatim}
 
 \hypersetup{
     colorlinks=true,
@@ -114,7 +115,7 @@ Para atender ao enunciado, as configura\c{c}\~oes m\'inimas recomendadas para me
     \item 8 chefs + 8 entregadores, ou o m\'aximo suportado pela m\'aquina.
 \end{itemize}
 
-O arquivo \texttt{graph.py} j\'a automatiza os testes de desempenho exatamente nas combina\c{c}\~oes pedidas no PDF. Na vers\~ao atual, o script executa as configura\c{c}\~oes \(1{+}1\), \(2{+}2\), \(4{+}4\) e \(8{+}8\), sempre somando chefs e entregadores para calcular o total de threads analisado nos gr\'aficos. Para que a compara\c{c}\~ao de speedup seja justa, o experimento mant\'em fixa a carga total de trabalho em 120 pizzas, distribuindo essa quantidade entre os chefs de cada teste.
+O arquivo \texttt{graph.py} j\'a automatiza os testes de desempenho exatamente nas combina\c{c}\~oes pedidas no PDF apresentado pelo professor. Na vers\~ao atual, o script executa as configura\c{c}\~oes \(1{+}1\), \(2{+}2\), \(4{+}4\) e \(8{+}8\), sempre somando chefs e entregadores para calcular o total de threads analisado nos gr\'aficos. Para que a compara\c{c}\~ao de speedup seja justa, o experimento mant\'em fixa a carga total de trabalho em 120 pizzas, distribuindo essa quantidade entre os chefs de cada teste.
 
 \subsection{Mecanismos de sincroniza\c{c}\~ao}
 Os mecanismos de sincroniza\c{c}\~ao adotados no projeto s\~ao:
@@ -318,7 +319,6 @@ Os gr\'aficos produzidos s\~ao:
     \item speedup versus n\'umero total de threads.
 \end{itemize}
 
-\subsubsection{Observa\c{c}\~ao sobre ader\^encia ao enunciado}
 O arquivo est\'a aderente ao enunciado da Etapa 3, pois executa diretamente os pares \((1,1)\), \((2,2)\), \((4,4)\) e \((8,8)\), permitindo preencher a tabela do relat\'orio e gerar o gr\'afico solicitado pelo professor.
 
 \section{Evid\^encias da Implementa\c{c}\~ao}
@@ -430,5 +430,33 @@ Esse tipo de satura\c{c}\~ao do speedup \'e especialmente cr\'itico em sistemas 
 O projeto est\'a bem organizado em m\'odulos e separa claramente as responsabilidades de inicializa\c{c}\~ao, concorr\^encia, interface e medi\c{c}\~ao experimental. O arquivo \texttt{main.py} coordena a execu\c{c}\~ao, \texttt{pizzaria.py} implementa o comportamento concorrente central, \texttt{interface.py} fornece visibilidade sobre o estado interno e \texttt{graph.py} viabiliza a an\'alise de desempenho.
 
 Com isso, o c\'odigo atende \`a proposta did\'atica da atividade e fornece uma base s\'olida tanto para a demonstra\c{c}\~ao da concorr\^encia quanto para a an\'alise dos limites pr\'aticos do paralelismo.
+
+\clearpage
+\section{Ap\^endice -- C\'odigos}
+\subsection{\texttt{pizzaria.py}}
+Como \texttt{pizzaria.py} concentra a l\'ogica central da aplica\c{c}\~ao, esta se\c{c}\~ao apresenta o seu c\'odigo-fonte completo. Nele est\~ao reunidos os mecanismos de sincroniza\c{c}\~ao, as estruturas compartilhadas, a l\'ogica das threads produtoras e consumidoras e a fun\c{c}\~ao respons\'avel por coordenar toda a simula\c{c}\~ao.
+
+{\footnotesize
+\verbatiminput{pizzaria.py}
+}
+
+\subsection{\texttt{interface.py}}
+O arquivo \texttt{interface.py} implementa a interface gr\'afica usando Tkinter. Ele define a classe \texttt{Interface}, que exibe o estado dos chefs, dos entregadores e as estat\'isticas gerais da simula\c{c}\~ao.
+{\footnotesize
+\verbatiminput{interface.py}
+}
+
+\subsection{\texttt{main.py}}
+O arquivo \texttt{main.py} coordena a execu\c{c}\~ao da simula\c{c}\~ao, inicializando os componentes e gerenciando o fluxo de trabalho.
+{\footnotesize
+\verbatiminput{main.py}
+}
+
+\subsection{\texttt{graph.py}}
+O arquivo \texttt{graph.py} viabiliza a an\'alise de desempenho.
+{\footnotesize
+\verbatiminput{graph.py}
+}
+
 
 \end{document}
