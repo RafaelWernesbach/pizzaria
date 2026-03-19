@@ -13,7 +13,7 @@ CONFIGURACOES_TESTE = [
     (8, 8),
 ]
 
-PIZZAS_POR_CHEF = 10
+TOTAL_PIZZAS = 120
 
 
 def resetar_estado():
@@ -26,40 +26,92 @@ def resetar_estado():
 
 
 def executar_testes():
-    tempos = []
-    total_threads_list = []
-    labels_configuracao = []
+    resultados = []
 
     for chefs, entregadores in CONFIGURACOES_TESTE:
+        if TOTAL_PIZZAS % chefs != 0:
+            raise ValueError(
+                f"TOTAL_PIZZAS={TOTAL_PIZZAS} precisa ser divisivel por {chefs} chefs."
+            )
+
+        pizzas_por_chef = TOTAL_PIZZAS // chefs
         total_threads = chefs + entregadores
         label = f"{chefs} chef(s) + {entregadores} entregador(es)"
 
-        print(f"\nIniciando teste: {label}")
+        print(
+            f"\nIniciando teste: {label} | "
+            f"{pizzas_por_chef} pizza(s) por chef | {TOTAL_PIZZAS} pizzas no total"
+        )
         resetar_estado()
 
         inicio = default_timer()
-        iniciar_simulacao(chefs, entregadores, PIZZAS_POR_CHEF)
+        iniciar_simulacao(chefs, entregadores, pizzas_por_chef)
         fim = default_timer()
 
         tempo_total = fim - inicio
 
-        tempos.append(tempo_total)
-        total_threads_list.append(total_threads)
-        labels_configuracao.append(label)
+        resultados.append(
+            {
+                "label": label,
+                "total_threads": total_threads,
+                "pizzas_por_chef": pizzas_por_chef,
+                "tempo_total": tempo_total,
+            }
+        )
 
         print(f"{label} | total de threads: {total_threads} | tempo: {tempo_total:.2f}s")
 
-    tempo_base = tempos[0]
-    speedups = [tempo_base / tempo for tempo in tempos]
+    tempo_base = resultados[0]["tempo_total"]
+    for resultado in resultados:
+        resultado["speedup"] = tempo_base / resultado["tempo_total"]
 
     print("\nSpeedups:")
-    for label, speedup in zip(labels_configuracao, speedups):
-        print(f"{label}: S = {speedup:.2f}")
+    for resultado in resultados:
+        print(f"{resultado['label']}: S = {resultado['speedup']:.2f}")
 
-    return total_threads_list, tempos, speedups
+    return resultados
 
 
-def gerar_graficos(total_threads_list, tempos, speedups):
+def imprimir_tabela_resultados(resultados):
+    colunas = [
+        ("Configuracao", lambda r: r["label"]),
+        ("Threads", lambda r: str(r["total_threads"])),
+        ("Pizzas/Chef", lambda r: str(r["pizzas_por_chef"])),
+        ("Pizzas Totais", lambda r: str(TOTAL_PIZZAS)),
+        ("Tempo (s)", lambda r: f"{r['tempo_total']:.4f}"),
+        ("Speedup", lambda r: f"{r['speedup']:.4f}"),
+    ]
+
+    larguras = []
+    for titulo, extrair in colunas:
+        largura = len(titulo)
+        for resultado in resultados:
+            largura = max(largura, len(extrair(resultado)))
+        larguras.append(largura)
+
+    cabecalho = " | ".join(
+        titulo.ljust(largura)
+        for (titulo, _), largura in zip(colunas, larguras)
+    )
+    separador = "-+-".join("-" * largura for largura in larguras)
+
+    print("\nTabela final dos resultados:")
+    print(cabecalho)
+    print(separador)
+
+    for resultado in resultados:
+        linha = " | ".join(
+            extrair(resultado).ljust(largura)
+            for (_, extrair), largura in zip(colunas, larguras)
+        )
+        print(linha)
+
+
+def gerar_graficos(resultados):
+    total_threads_list = [resultado["total_threads"] for resultado in resultados]
+    tempos = [resultado["tempo_total"] for resultado in resultados]
+    speedups = [resultado["speedup"] for resultado in resultados]
+
     plt.figure(figsize=(10, 5))
 
     plt.subplot(1, 2, 1)
@@ -88,8 +140,9 @@ def gerar_graficos(total_threads_list, tempos, speedups):
 
 if __name__ == "__main__":
     try:
-        total_threads_list, tempos, speedups = executar_testes()
-        gerar_graficos(total_threads_list, tempos, speedups)
+        resultados = executar_testes()
+        imprimir_tabela_resultados(resultados)
+        gerar_graficos(resultados)
         print("\nExecucao finalizada com sucesso.")
     except KeyboardInterrupt:
         print("\nExecucao interrompida pelo usuario.")

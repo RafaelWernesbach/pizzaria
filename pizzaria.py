@@ -5,7 +5,7 @@ from random import randint
 from math import sqrt
 
 fila = Queue(maxsize=100)
-forno = threading.Semaphore(2)
+forno = threading.Semaphore(3)
 condition = threading.Condition()
 
 intervalo = 100000

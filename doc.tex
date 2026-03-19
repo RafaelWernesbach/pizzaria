@@ -39,10 +39,9 @@
 \title{\textbf{Estudo Dirigido 01 -- Pizzaria Ca\'otica}\\[0.5em]
 \large Documenta\c{c}\~ao do C\'odigo e Estrutura do Projeto}
 \author{
-Nome do aluno 1: \rule{7cm}{0.4pt}\\
-Matr\'icula: \rule{5cm}{0.4pt}\\[0.5em]
-Nome do aluno 2: \rule{7cm}{0.4pt}\\
-Matr\'icula: \rule{5cm}{0.4pt}
+    CC7N
+Rafael Wernesbach\\
+Rafael Bassul\\
 }
 \date{\today}
 
@@ -115,7 +114,7 @@ Para atender ao enunciado, as configura\c{c}\~oes m\'inimas recomendadas para me
     \item 8 chefs + 8 entregadores, ou o m\'aximo suportado pela m\'aquina.
 \end{itemize}
 
-O arquivo \texttt{graph.py} j\'a automatiza os testes de desempenho exatamente nas combina\c{c}\~oes pedidas no PDF. Na vers\~ao atual, o script executa as configura\c{c}\~oes \(1{+}1\), \(2{+}2\), \(4{+}4\) e \(8{+}8\), sempre somando chefs e entregadores para calcular o total de threads analisado nos gr\'aficos.
+O arquivo \texttt{graph.py} j\'a automatiza os testes de desempenho exatamente nas combina\c{c}\~oes pedidas no PDF. Na vers\~ao atual, o script executa as configura\c{c}\~oes \(1{+}1\), \(2{+}2\), \(4{+}4\) e \(8{+}8\), sempre somando chefs e entregadores para calcular o total de threads analisado nos gr\'aficos. Para que a compara\c{c}\~ao de speedup seja justa, o experimento mant\'em fixa a carga total de trabalho em 120 pizzas, distribuindo essa quantidade entre os chefs de cada teste.
 
 \subsection{Mecanismos de sincroniza\c{c}\~ao}
 Os mecanismos de sincroniza\c{c}\~ao adotados no projeto s\~ao:
@@ -288,22 +287,26 @@ O arquivo \texttt{graph.py} foi criado para a etapa experimental da atividade, p
 \subsubsection{Configura\c{c}\~ao atual}
 Na vers\~ao atual do script:
 \begin{itemize}
-    \item a quantidade de pizzas por chef foi fixada em 10;
+    \item a carga total do experimento foi fixada em 120 pizzas;
     \item as configura\c{c}\~oes testadas s\~ao \(1\) chef + \(1\) entregador, \(2\) chefs + \(2\) entregadores, \(4\) chefs + \(4\) entregadores e \(8\) chefs + \(8\) entregadores;
+    \item a quantidade de pizzas por chef \'e calculada a partir dessa carga total, resultando em 120, 60, 30 e 15 pizzas por chef, respectivamente;
     \item o tempo de execu\c{c}\~ao \'e medido com \texttt{timeit.default\_timer()};
     \item o gr\'afico final \'e salvo automaticamente no arquivo \texttt{grafico\_pizzaria.png};
-    \item o script trata interrup\c{c}\~ao por teclado com \texttt{KeyboardInterrupt}.
+    \item o script trata interrup\c{c}\~ao por teclado com \texttt{KeyboardInterrupt};
+    \item ao final, o terminal exibe uma tabela textual com configura\c{c}\~ao, total de threads, pizzas por chef, pizzas totais, tempo e speedup.
 \end{itemize}
 
 \subsubsection{Fluxo do script}
 O script realiza os seguintes passos:
 \begin{enumerate}
     \item define uma lista fixa de configura\c{c}\~oes de teste no formato \((chefs, entregadores)\);
+    \item calcula automaticamente quantas pizzas cada chef dever\'a produzir, mantendo o total de 120 pizzas em todas as execu\c{c}\~oes;
     \item reinicializa o estado compartilhado antes de cada teste;
     \item imprime no terminal uma mensagem de in\'icio para cada experimento;
     \item mede o tempo total da simula\c{c}\~ao;
     \item armazena o tempo obtido;
     \item calcula o speedup em rela\c{c}\~ao ao primeiro teste, que \'e a configura\c{c}\~ao base \(1\) chef + \(1\) entregador;
+    \item imprime uma tabela final com os valores exatos medidos;
     \item gera dois subgr\'aficos com o \texttt{matplotlib};
     \item salva a figura em disco e tenta exibi-la na tela.
 \end{enumerate}
@@ -321,18 +324,32 @@ O arquivo est\'a aderente ao enunciado da Etapa 3, pois executa diretamente os p
 \section{Evid\^encias da Implementa\c{c}\~ao}
 As figuras abaixo foram reservadas para as capturas de tela solicitadas no enunciado.
 
-\placeholderfigure{Execu\c{c}\~ao geral do sistema mostrando chefs, entregadores e a interface gr\'afica em funcionamento.}{6cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{fig1.png}
+\caption{Execu\c{c}\~ao geral do sistema mostrando chefs, entregadores e a interface gr\'afica em funcionamento.}
+\end{figure}
 
-\placeholderfigure{Situa\c{c}\~ao em que chefs est\~ao aguardando o forno, evidenciando o bloqueio causado pelo sem\'aforo.}{6cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{fig2.png}
+\caption{Situa\c{c}\~ao em que chefs est\~ao aguardando o forno, evidenciando o bloqueio causado pelo sem\'aforo.}
+\end{figure}
 
-\placeholderfigure{Situa\c{c}\~ao em que uma pizza fica pronta e ocorre a notifica\c{c}\~ao do consumidor via \texttt{Condition}.}{6cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{fig3.png}
+\caption{Situa\c{c}\~ao em que uma pizza fica pronta e ocorre a notifica\c{c}\~ao do consumidor via \texttt{Condition}.}
+\end{figure}
 
 \section{Etapa 3 -- Medi\c{c}\~ao e Gr\'afico}
 O arquivo \texttt{graph.py} foi desenvolvido para automatizar a etapa de medi\c{c}\~ao. A ideia central \'e executar o programa com diferentes quantidades de threads, registrar o tempo total e comparar o ganho de desempenho.
 
 Na vers\~ao atual, as medi\c{c}\~oes s\~ao realizadas nas quatro configura\c{c}\~oes pedidas pelo PDF: \(1\) chef + \(1\) entregador, \(2\) chefs + \(2\) entregadores, \(4\) chefs + \(4\) entregadores e \(8\) chefs + \(8\) entregadores.
 
-Al\'em da exibi\c{c}\~ao em janela quando o backend do \texttt{matplotlib} permite, o script salva automaticamente a imagem do resultado em \texttt{grafico\_pizzaria.png}. Isso facilita a inclus\~ao do gr\'afico no relat\'orio mesmo em ambientes onde a interface gr\'afica do \texttt{matplotlib} n\~ao abre corretamente.
+Para que o gr\'afico de speedup represente de fato o efeito do paralelismo, todas as configura\c{c}\~oes processam a mesma carga total: 120 pizzas. Assim, a diferen\c{c}a entre os testes passa a ser a quantidade de threads utilizadas, e n\~ao o volume total de trabalho realizado.
+
+Al\'em da exibi\c{c}\~ao em janela quando o backend do \texttt{matplotlib} permite, o script salva automaticamente a imagem do resultado em \texttt{grafico\_pizzaria.png}. Isso facilita a inclus\~ao do gr\'afico no relat\'orio mesmo em ambientes onde a interface gr\'afica do \texttt{matplotlib} n\~ao abre corretamente. O programa tamb\'em imprime no terminal uma tabela final com os valores exatos, o que ajuda no preenchimento da tabela do relat\'orio.
 
 \subsection{M\'etrica utilizada}
 O tempo total de execu\c{c}\~ao \'e medido em segundos, e o speedup \'e calculado pela express\~ao:
@@ -341,23 +358,31 @@ S(N) = \frac{T(1)}{T(N)}
 \]
 em que \(T(1)\) representa o tempo da configura\c{c}\~ao de refer\^encia e \(T(N)\) representa o tempo medido para uma configura\c{c}\~ao com mais threads.
 
-\subsection{Tabela para preenchimento dos resultados}
+Nesse experimento, \(T(1)\) corresponde ao caso base com \(1\) chef e \(1\) entregador processando as mesmas 120 pizzas totais que ser\~ao distribu\'idas nas demais configura\c{c}\~oes.
+
+\subsection{Tabela de resultados}
 \begin{table}[H]
 \centering
 \begin{tabular}{cccc}
 \toprule
 \textbf{Configura\c{c}\~ao} & \textbf{Total de threads} & \textbf{Tempo total (s)} & \textbf{Speedup} \\
 \midrule
-1 chef + 1 entregador & 2 & \rule{2.5cm}{0.4pt} & \rule{2cm}{0.4pt} \\
-2 chefs + 2 entregadores & 4 & \rule{2.5cm}{0.4pt} & \rule{2cm}{0.4pt} \\
-4 chefs + 4 entregadores & 8 & \rule{2.5cm}{0.4pt} & \rule{2cm}{0.4pt} \\
-8 chefs + 8 entregadores & 16 & \rule{2.5cm}{0.4pt} & \rule{2cm}{0.4pt} \\
+1 chef + 1 entregador & 2 & 25.4753 & 1.0000 \\
+2 chefs + 2 entregadores & 4 & 14.5719 & 1.7482 \\
+4 chefs + 4 entregadores & 8 & 10.2249 & 2.4915 \\
+8 chefs + 8 entregadores & 16 & 9.6462 & 2.6410 \\
 \bottomrule
 \end{tabular}
 \caption{Tabela para registro dos tempos e speedups.}
 \end{table}
 
-\placeholderfigure{Inserir aqui o gr\'afico de tempo total e speedup gerado a partir do arquivo \texttt{graph.py}, preferencialmente usando o arquivo \texttt{grafico\_pizzaria.png}.}{7cm}
+Os resultados mostram que houve ganho de desempenho com o aumento do n\'umero de threads, mas sem crescimento linear perfeito. O melhor resultado observado foi na configura\c{c}\~ao com 8 chefs e 8 entregadores, que alcan\c{c}ou speedup de 2.6410 com 16 threads no total.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig4.png}
+\caption{Gr\'afico de tempo total e speedup gerado a partir do arquivo \texttt{graph.py}.}
+\end{figure}
 
 \section{Etapa 4 -- An\'alise pela Lei de Amdahl}
 A Lei de Amdahl permite interpretar por que o speedup n\~ao cresce indefinidamente com o aumento do n\'umero de threads. Mesmo quando h\'a paralelismo, ainda existe uma fra\c{c}\~ao sequencial do programa, al\'em de custos extras de sincroniza\c{c}\~ao, conten\c{c}\~ao e troca de contexto.
@@ -368,36 +393,38 @@ S(N) \approx \frac{1}{B + \frac{1-B}{N}}
 \]
 em que \(B\) representa a fra\c{c}\~ao sequencial do programa.
 
-\subsection{Roteiro de resposta}
-Ap\'os preencher a tabela da se\c{c}\~ao anterior, esta se\c{c}\~ao pode ser completada com base nos resultados experimentais:
+\subsection{Respostas da Etapa 4}
 \begin{enumerate}
-    \item verificar se o speedup continuou crescendo de forma aproximadamente linear;
-    \item estimar a fra\c{c}\~ao sequencial \(B\) usando dois pontos da tabela;
-    \item discutir qual seria o speedup m\'aximo te\'orico em uma m\'aquina com 32 n\'ucleos;
-    \item apontar custos reais observados, como GIL, espera pelo sem\'aforo, conten\c{c}\~ao na fila e atualiza\c{c}\~ao de estado compartilhado.
+    \item \textbf{Observando seus resultados, o speedup continua crescendo linearmente at\'e 8 threads? Por qu\^e?}
+
+    N\~ao. O speedup cresce com o aumento do n\'umero de threads, mas de forma sublinear. Pelos resultados obtidos, o speedup foi de 1.7482 com 4 threads totais, 2.4915 com 8 threads totais e 2.6410 com 16 threads totais. Isso mostra que houve ganho com paralelismo, por\'em com retorno decrescente. O crescimento deixa de ser linear porque parte do programa continua sequencial e porque surgem custos extras de sincroniza\c{c}\~ao, conten\c{c}\~ao no sem\'aforo do forno, acesso \`a fila compartilhada e troca de contexto entre threads.
+
+    \item \textbf{Estime aproximadamente a fra\c{c}\~ao sequencial \(B\) usando dois pontos da tabela.}
+
+    Aplicando a Lei de Amdahl, \(S(N) \approx \frac{1}{B + \frac{1-B}{N}}\). Para \(N = 8\) threads totais e \(S(8) = 2.4915\), obteve-se aproximadamente \(B \approx 0.316\). Para \(N = 16\) threads totais e \(S(16) = 2.6410\), obteve-se aproximadamente \(B \approx 0.337\). Fazendo uma estimativa m\'edia, temos \(B \approx 0.33\). Isso indica que cerca de um ter\c{c}o do comportamento total da aplica\c{c}\~ao permanece sequencial ou n\~ao se beneficia plenamente do paralelismo.
+
+    \item \textbf{Se voc\^e tivesse um computador com 32 n\'ucleos, qual seria o speedup m\'aximo te\'orico esperado?}
+
+    Considerando \(B \approx 0.33\), o speedup te\'orico para 32 n\'ucleos seria:
+    \[
+    S(32) \approx \frac{1}{0.33 + \frac{1 - 0.33}{32}} \approx 2.85
+    \]
+    Portanto, mesmo com muito mais n\'ucleos dispon\'iveis, o ganho n\~ao cresceria indefinidamente. O limite te\'orico absoluto, quando \(N \to \infty\), seria aproximadamente \(\frac{1}{0.33} \approx 3.03\), o que refor\c{c}a a ideia de satura\c{c}\~ao do speedup.
+
+    \item \textbf{Cite pelo menos duas causas reais de overhead que apareceram na sua implementa\c{c}\~ao.}
+
+    Entre os principais overheads observados est\~ao o GIL do Python, que limita o paralelismo efetivo em trechos CPU-bound como o teste de primalidade, e a conten\c{c}\~ao no sem\'aforo do forno, que restringe quantos chefs podem trabalhar simultaneamente. Tamb\'em houve custo de sincroniza\c{c}\~ao com \texttt{Queue} e \texttt{Condition}, al\'em de troca de contexto entre muitas threads concorrentes. Esses fatores ajudam a explicar por que o speedup n\~ao cresce de forma linear.
 \end{enumerate}
-
-\subsection{Espa\c{c}o para an\'alise}
-\noindent\textbf{Resposta sugerida para ser completada ap\'os a execu\c{c}\~ao dos testes:}
-
-\vspace{0.5em}
-\noindent\framebox[\textwidth]{
-\parbox[c][8cm][t]{0.95\textwidth}{
-\vspace{0.5em}
-Escrever aqui a an\'alise quantitativa da Lei de Amdahl com base na tabela obtida, discutindo o comportamento do speedup, a estimativa de \(B\) e os fatores reais de overhead observados na implementa\c{c}\~ao.
-}
-}
 
 \section{Etapa 5 -- Reflex\~ao Final}
 O projeto mostra, de maneira pr\'atica, que concorr\^encia e paralelismo n\~ao significam ganho ilimitado de desempenho. Aumentar o n\'umero de threads pode melhorar a vaz\~ao at\'e certo ponto, mas tamb\'em introduz custos de coordena\c{c}\~ao e disputa por recursos limitados.
 
-\subsection{Espa\c{c}o para resposta final}
-\noindent\framebox[\textwidth]{
-\parbox[c][7cm][t]{0.95\textwidth}{
-\vspace{0.5em}
-Escrever aqui a reflex\~ao final do grupo, abordando a principal li\c{c}\~ao aprendida sobre os limites reais do paralelismo e comentando em quais tipos de sistemas reais esse tipo de satura\c{c}\~ao do speedup se torna mais cr\'itico.
-}
-}
+\subsection{Resposta final}
+A principal li\c{c}\~ao desta atividade foi perceber que aumentar o n\'umero de threads n\~ao significa, automaticamente, obter ganho proporcional de desempenho. Na pr\'atica, o paralelismo sempre encontra limites impostos por trechos sequenciais, sincroniza\c{c}\~ao, conten\c{c}\~ao por recursos compartilhados e custos de gerenciamento das threads. O experimento da pizzaria mostrou isso claramente: o speedup aumentou at\'e certo ponto, mas depois os ganhos passaram a diminuir.
+
+Outro aprendizado importante foi entender que medir desempenho exige comparar as mesmas condi\c{c}\~oes de trabalho. Quando a carga total foi mantida fixa, o gr\'afico passou a representar corretamente o efeito do paralelismo. Isso mostrou que a an\'alise de performance n\~ao depende apenas do c\'odigo, mas tamb\'em da forma como o experimento \'e planejado.
+
+Esse tipo de satura\c{c}\~ao do speedup \'e especialmente cr\'itico em sistemas reais como servidores web de alta concorr\^encia, aplica\c{c}\~oes de processamento de dados, jogos e sistemas de machine learning. Nesses cen\'arios, muitas requisi\c{c}\~oes ou tarefas competem por CPU, mem\'oria, filas e regi\~oes cr\'iticas. Quando o projeto n\~ao considera esses gargalos, adicionar mais threads ou mais n\'ucleos pode trazer ganho pequeno, ou at\'e piorar o desempenho. Por isso, a principal conclus\~ao \'e que paralelizar bem significa equilibrar trabalho, reduzir overhead e conhecer os limites reais da arquitetura usada.
 
 \section{Conclus\~ao}
 O projeto est\'a bem organizado em m\'odulos e separa claramente as responsabilidades de inicializa\c{c}\~ao, concorr\^encia, interface e medi\c{c}\~ao experimental. O arquivo \texttt{main.py} coordena a execu\c{c}\~ao, \texttt{pizzaria.py} implementa o comportamento concorrente central, \texttt{interface.py} fornece visibilidade sobre o estado interno e \texttt{graph.py} viabiliza a an\'alise de desempenho.
